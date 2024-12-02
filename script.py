@@ -69,6 +69,7 @@ except ValueError:  # إذا لم يكن الرد بتنسيق JSON
     print("Error: Response is not JSON.")
     jsons = None
 
+print(check)
 if check == 200:
     print(f"({check}) Success\n")
     while True:
@@ -91,22 +92,29 @@ if check == 200:
     if user_choice == 1:  # عرض JSON
         if jsons is not None:
             formatted_json = json.dumps(jsons, indent=4, ensure_ascii=False)
-            print(Fore.WHITE + Back.BLACK + formatted_json + Style.RESET_ALL)
 
             if save in ['yes', 'y']:
                 savename = input("Enter file name: ").strip()
                 with open(savename + '.json', 'w') as file:
                     file.write(formatted_json)
                 print(f"File {savename}.json saved successfully.")
+            elif save in ['no', 'n']:
+                print(Fore.WHITE + Back.BLACK + formatted_json + Style.RESET_ALL)
+                print("The file was not saved!!")
         else:
             print("No JSON content to display.")
     elif user_choice == 2:  # عرض النص
-        print(response.text)
+        
         if save in ['yes', 'y']:
             savename = input("Enter file name: ").strip()
-            with open(savename + '.txt', 'w') as file:
+            with open(savename + '.html', 'w') as file:
                 file.write(response.text)
-            print(f"File {savename}.txt saved successfully.")
+            print(f"File {savename}.html saved successfully.")
+            
+        elif save in ['no', 'n']:
+            print(response.text)
+            print("The file was not saved!!")
+
 else:
     print("Request failed or server is not reachable.")
 
