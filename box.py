@@ -1,3 +1,8 @@
-num = 10 
+from tkinter import *
 
-print(num)
+
+
+
+root= Tk()  
+
+root.mainloop()

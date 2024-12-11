@@ -45,3 +45,160 @@
     var_dump((bool) [2,3]); // bool(true)
     var_dump((bool) 0);  // bool(false)
     var_dump((bool) 10234);  // bool(true)
+
+    $var = 10;
+    $var2 = "Abdullah";
+    $var3 = false;
+    $var4 = array("aboud", 10, "2005/10/10");
+    echo gettype($var);
+    echo "  //gettype<br/>";
+    echo var_dump($var);
+    echo "  //var_dump<br/>";
+    echo gettype($var2);
+    echo "  //gettype<br/>";
+    echo var_dump($var2);
+    echo "  //var_dump<br/>";
+    echo gettype($var3);
+    echo "  //gettype<br/>";
+    echo var_dump($var3);
+    echo "  //var_dump<br/>";
+    echo gettype($var4);
+    echo "  //gettype <br/>";
+    echo var_dump($var4);
+    echo "  //var_dump";
+
+
+    // How to use functins array() with foreach functions
+    $info = array("name" => "aboud", "age" => "20");
+    echo $info['age'];
+    echo $info['name'];
+    echo "<br/> <br/>";
+
+    $text = array("aboud", "ali", "omer");
+    foreach($text as $key) {
+        echo $key . "<br/>";
+    }
+
+    $arr = array(
+        "color" => "white",
+        "background-color" => "black",
+        "font-size" => "10px"
+    );
+    foreach($arr as $keys => $value) {
+        echo $keys . " : " . $value . "<br/>"; 
+    }
+    
+    //  كيفيه الكتابه على عده سطور
+    echo 'Hi \'PHP\'';
+    ECHO '<br/>';
+    echo "Hi \PHP\\";
+    echo "<br/>";
+    echo "Hi PHP 
+        and Hi python";
+    echo "<br/>";   
+
+    //  nl2br()   وظيفتها هي مسح كل السطر و دمج الكلام في سطر واحد ولو كان في عده اسطر
+    echo nl2br("Hi PHP
+    and Hi python
+    and Hi JavaScript");
+    echo "<br/>";
+    echo "Hi PHP and Hi python";
+
+    $name = "Abdullah";
+
+    // Heredoc      //   انها تفهم اي كلمه محجوزه او تتعامل معها على ان اي شي يمكن فهمه برمجيا يمكن استقبال المتغيرات و التخطي
+    echo <<<"Here"
+    Hi $name What are you doing now? : \\ watch or \\ clean .
+    HI $name How are you 
+
+    Here;
+
+
+    // Nowdoc    الفرق هنا انه اي شيء تكتبه لو كانت كلمات محجوزه في الرنامج لن يتم تفسيرها او التعامل معها على انها كود برمجي بل بالكامل انها string.
+    echo <<<'Now'
+    Hi $name How are you \\
+    Hi $name What are you doing now? : \\ watch or \\ clean .
+    if $name is not "abdullah"
+    Now;
+    
+    // Learn How to find defrent use between type variables (global variables) and (static variables) and (local variables).
+    $global = 18;
+    function add() {
+        echo "My old $GLOBALS[global]";
+        echo "<br/>";
+    };
+
+    function add1() {
+        global $global;
+        echo "My old $global";
+        echo "<br/>";
+    };
+    
+    function add2() {
+        static $count = 0;
+        $count++;
+        echo $count . "<br/>";
+    }
+    function add3() {
+        $GLOBALS['global'] = 20;
+    }
+    add3();
+    echo $global;   // 20
+
+    add();
+    add1();
+    add2(); // 1
+    add2(); // 2
+    add2(); // 3
+
+    // Used Global Variables
+    $name = "aboud";
+    function add5() {
+        global $name;
+        $name = "Abdullah";
+    }
+    add();
+    echo $name;
+
+    // defrent print and echo
+    $result = print "Hello";
+    if ($result) {
+        echo("OK");
+    }else {
+        echo("No");
+    }
+
+    // strlen and str_word_count
+    $strlen = "Abdullah";
+    $NumWord = "A b d";
+    echo strlen($strlen);  //  تحصب عدد الحروف و مع المسافات و كل شيء تعظيك طزل السلسلة
+    echo "<br/>";
+    echo str_word_count($NumWord);    //  تحصب عدد الكلامات اي كم كلمه موجوده في النص المتغير 
+
+    // strpos()
+    $strpos = "Hello World!";
+    echo strpos($strpos, "!");   // تبحث عن نص داخل متغير او داخل سلسله نصيه و تعطيك ال index تبعها بدايه ال index 
+
+    $strtoupper = "hello world!";
+    $strtolower = "HELLO WORLD!";
+    $strreplace = "Hello World!";
+    echo strtoupper($strtoupper);    // يكبر الأحرف
+    echo "<br>";
+    echo strtolower($strtolower);   //  تصغير الأحرف
+    echo "<br>";
+    echo strcasecmp($strtolower, $strtoupper);   //  مقارنه بين متغيرين  او بين نصين لكن لا تراعي حاله الاحرف كبيره او صغيره
+    echo "<br/>";
+    echo strcmp($strtolower, $strtoupper);    // مقاره حساسة لي حاله الأحرف تقارن بالضبط ما تم رصده من اختلاف 
+    echo "<br/>";
+    echo str_replace("Hello", "Hi", $strreplace);   //  تستبد مكان كلمه في نص الى كلمه ان تضعها هي تبحث عن الكلمه المراد استبدالها في المتغير تجدها تستبدلها في المعطى اليها 
+    echo "<br/>";
+    echo strrev($strreplace);    // يعكس الكلمه
+    echo "<br/>";
+    echo trim($strreplace);     //  تزيل المسافات التي في البداية و النهاية  
+    echo "<br/>";
+    $exp = explode(" ", $strreplace);  //  هذه تستخدم لي تقسيم الكلمه التي داخل النص الى مصفوفه او array  
+    print_r($exp);   //  تستخدم ال print_r مع ال explode  // Array ( [0] => Hello [1] => World )
+    echo "<br/>";
+    
+    $x = "Hello, World!";
+    echo substr($x, 6, 6);  // هذه ارجاع قيمه بي استخدام ال index الرقم الذي تحدده في الاول هو مكان البدايه علما ان مكان البدايه محسوبه في ال length و الرقم الثاني هو ال length اي عددالكلمه الذي بدأت منه نحسب ال index.
