@@ -41,8 +41,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/Mohammed/OneDrive/Desktop/Code",
-      "program": "c:/Users/Mohammed/OneDrive/Desktop/Code/build/Debug/outDebug",
+      "cwd": "c:/xampp/htdocs/aboud",
+      "program": "c:/xampp/htdocs/aboud/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

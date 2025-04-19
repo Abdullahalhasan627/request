@@ -202,3 +202,41 @@
     
     $x = "Hello, World!";
     echo substr($x, 6, 6);  // هذه ارجاع قيمه بي استخدام ال index الرقم الذي تحدده في الاول هو مكان البدايه علما ان مكان البدايه محسوبه في ال length و الرقم الثاني هو ال length اي عددالكلمه الذي بدأت منه نحسب ال index.
+    // \'	   Single Quote	
+    // \"	   Double Quote	
+    // \$	   PHP variables	
+    // \n	   New Line	
+    // \r	   Carriage Return	
+    // \t	   Tab	
+    // \f	   Form Feed	
+    // \ooo	   Octal value	
+    // \xhh	   Hex value
+
+    $object = "Hello";
+    $object = (object) $object;
+    echo var_dump($object);  // Data Type: object(stdClass#1) { ["scalar"]=> string(5) "Hello" }
+    echo "<br/>";
+    echo gettype($object);   // Data Type: (object)
+
+    $xx = "HI";
+    $xx = (unset) $xx;
+    echo var_dump($xx);  // هذا سيكون فارغا انتهيت التعيين عليه
+
+    $is_name = "david";
+    $exp1 = 10;
+    $exp2 = 2.5 * 4;
+    $is_arr = [10, "20", "30", 30];
+    echo var_dump($exp1);   // هنا نوع البيانات (integer) لانه عدد صحيح خالي من الفواصل والنقط
+    echo "<br/>";
+    echo var_dump($exp2);  // علما ان الجواب هو 10 لكن هذا المتغير ليس عدد صحيح انما هو عشري نوع البيانات هو (float) هو لا يأخذ الخواب اما لي احتواءه قيمه عشريه 
+    echo "<br/>";
+
+    echo is_int($exp1) || is_integer($exp1) || is_long($exp1);  //  لي الـأكد من انه عدد صحيح سوف يعطيك 1 اذا كان صحيح لن يعطيك شي اذا لم يكن صحيح 
+    echo "<br/>";
+    echo is_float($exp2);    //  لي التأكد من انه عدد  عشري يعطي 1 اذا لم يكن لا يعطي شيء
+    echo "<br/>";
+    echo is_double($exp1);
+    echo "<br/>";
+    echo is_string($is_name);
+    echo "<br/>";
+    echo is_array($is_arr);
